@@ -12,7 +12,7 @@ const CourseCard = ({course}) => {
       <p>
         {course.tag.map ((i) => {
             return (
-              <div>
+              <div key={i}>
                 <span>{i}</span>
                 <br />
               </div>
