@@ -21,12 +21,15 @@ function App() {
   // const activeTab = 3;
   const [isOpen, setIsOpen] = useState(true)
   const [activeTab, setActiveTab] = useState(2)
+  const [counter, setCounter] = useState(0)
   const handleActive = (id) => {
     setActiveTab(id)
-  }
+    setCounter((counter) => counter + 1);
+    setCounter((counter) => counter + 1);
+   }
   return (
     <>
-    <button onClick={() => setIsOpen(!isOpen)}>Show</button>
+    <button onClick={() => setIsOpen(isOpen => !idsOpen)}>Show</button>
       {
         isOpen && <div className="tab-content">
         <div className="tab-content__header">
@@ -38,7 +41,7 @@ function App() {
         </div>
         <hr />
         <div className="tab-content__content">
-          <p>{tabData[activeTab - 1 ].content}</p>
+            <p>{tabData[activeTab - 1 ].content} - {counter}</p>
         </div>
       </div>
       }
