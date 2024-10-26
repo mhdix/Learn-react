@@ -14,24 +14,25 @@ const tabData = [
     title: "Item 3",
     content: "Lorem, ipsum dolor3.",
   },
-  {
-    id: "4",
-    title: "Item 4",
-    content: "Lorem, ipsum dolor4.",
-  },
 ];
 function App() {
+  const activeTab = 3;
+  const handleActive = (id) => {
+    console.log('clicked', id)
+  }
   return (
     <>
       <div className="tab-content">
         <div className="tab-content__header">
-          <a href="#">Item one</a>
-          <a href="#">Item two</a>
-          <a href="#">Item three</a>
+          {tabData.map((tab) => (
+            <button onClick={() => handleActive(tab.id)} key={tab.id} className={activeTab === tab.id ? 'active' : ''}>
+              {tab.title}
+            </button>
+          ))}
         </div>
         <hr />
         <div className="tab-content__content">
-          <p>content</p>
+          <p>{tabData[activeTab - 1 ].content}</p>
         </div>
       </div>
     </>
