@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const tabData = [
   {
     id: "1",
@@ -16,13 +18,17 @@ const tabData = [
   },
 ];
 function App() {
-  const activeTab = 3;
+  // const activeTab = 3;
+  const [isOpen, setIsOpen] = useState(true)
+  const [activeTab, setActiveTab] = useState(2)
   const handleActive = (id) => {
-    console.log('clicked', id)
+    setActiveTab(id)
   }
   return (
     <>
-      <div className="tab-content">
+    <button onClick={() => setIsOpen(!isOpen)}>Show</button>
+      {
+        isOpen && <div className="tab-content">
         <div className="tab-content__header">
           {tabData.map((tab) => (
             <button onClick={() => handleActive(tab.id)} key={tab.id} className={activeTab === tab.id ? 'active' : ''}>
@@ -35,6 +41,7 @@ function App() {
           <p>{tabData[activeTab - 1 ].content}</p>
         </div>
       </div>
+      }
     </>
   );
 }
