@@ -5,8 +5,14 @@ import NoteList from "./NoteList";
 
 const AppNote = () => {
   const [note, setNote] = useState([]);
+
   const onAddNote = (newNote) => {
     setNote(prevNote => [...prevNote, newNote])
+  }
+  const handleDeleteNote = (id) => {
+    const filteredNote = note.filter((n) => n.id !== id)
+    setNote(filteredNote)
+    setNote(prevNote => [...prevNote, filteredNote])
   }
 
   return (
@@ -18,8 +24,8 @@ const AppNote = () => {
       <br />
 
       <div className="note-list">
-        <NoteList note={note} />
-      </div>
+        <NoteList note={note} onDelete={handleDeleteNote} />
+      </div>  
     </>
   );
 };

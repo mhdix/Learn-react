@@ -7,9 +7,10 @@ const AddNewNote = ({onAddNote}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newNote = {
+      id: Date.now(),
       title,
       desc,
-      id: Date.now(),
+      isCompleted: false,
       createAt: new Date().toLocaleDateString("fa-IR"),
     };
     setTitle("");
