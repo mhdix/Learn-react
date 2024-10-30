@@ -1,6 +1,7 @@
 import React from 'react'
 
-const NoteList = ({ note, setNote, onDelete, onComplete }) => {
+const NoteList = ({ note, sortBy, onDelete, onComplete }) => {
+
   const handleSubmit = (e) => {
     e.preventDefault();
   };
