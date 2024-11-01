@@ -1,9 +1,9 @@
 import React from 'react'
-
+import Message from './Message'
 const NoteStatus = ({note}) => {
     const allNotes = note.length
     const completedNote = note.filter((note) => note.isCompleted).length
-    if(!allNotes) return <h2>no notes already exist</h2>
+    if(!allNotes) return <Message text="no notes already exist">&times;</Message>
   return (
     <div>
       <ul style={{ display: "flex", gap: "30px", listStyleType: "none" }}>
